@@ -1,0 +1,140 @@
+/*body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: row;
+}
+.sidebar {
+    width: 220px;
+    background-color: #005bb5;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+.sidebar a:hover {
+    background-color: #004999;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+.content {
+    flex: 1;
+    padding: 20px;
+}
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.topbar .profile {
+    display: flex;
+    align-items: center;
+}
+.profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.projects, .announcements, .trending {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.project-card, .announcement-card, .trending-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 250px;
+}
+.projects {
+    margin-bottom: 20px;
+}*/
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    display: grid;
+    grid-template-columns: 220px 1fr; /* Define dos columnas: una para la sidebar y otra para el contenido */
+    grid-template-rows: auto 1fr; /* Filas: una para la topbar y otra para el contenido principal */
+    grid-template-areas: 
+        "sidebar topbar"
+        "sidebar content"; /* Define el área para la barra lateral, la barra superior y el contenido */
+}
+
+.sidebar {
+    background-color: #005bb5;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    grid-area: sidebar; /* Coloca el sidebar en el área definida */
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar a:hover {
+    background-color: #004999;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+.content {
+    padding: 20px;
+    grid-area: content; /* Coloca el contenido en el área definida */
+}
+
+.topbar {
+    display: grid;
+    grid-template-columns: 1fr auto; /* Define dos columnas: una flexible para el contenido y otra para la parte del perfil */
+    align-items: center;
+    margin-bottom: 20px;
+    grid-area: topbar; /* Coloca la topbar en el área definida */
+}
+
+.topbar .profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.projects, .announcements, .trending {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Coloca los elementos en un grid que se ajusta según el tamaño del contenedor */
+    gap: 20px;
+}
+
+.project-card, .announcement-card, .trending-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.projects {
+    margin-bottom: 20px;
+}
